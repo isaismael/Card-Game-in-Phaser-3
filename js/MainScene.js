@@ -1,4 +1,5 @@
 import CardPlayer from "../js/CardPlayer.js";
+import Grid from "../js/Grid.js";
 
 export default class MainScene extends Phaser.Scene {
     constructor(){
@@ -24,6 +25,9 @@ export default class MainScene extends Phaser.Scene {
     }
 
     create() {
+
+        this.grid = new Grid( {scene: this, columns: 3, rows: 3});
+
         this.player = new CardPlayer({
             scene: this,
             name: 'Paladin',
