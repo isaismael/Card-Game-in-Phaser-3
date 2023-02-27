@@ -18,4 +18,15 @@ export default class CardGrid extends CardBase {
       get value() {
         return this._value;
       }
+
+      set highlighted(highlight){
+        if(highlight){
+          let color = 0xcccc88;
+          this.spriteCard.tint = color;
+          this.spriteImage.tint = color;
+        } else {
+          this.spriteCard.tint = 0xfffffff;
+          this.spriteImage.tint = 0xffffff;
+        }
+      }
 }

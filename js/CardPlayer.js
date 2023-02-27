@@ -73,4 +73,25 @@ export default class CardPlayer extends CardDraggable {
   get armor() {
     return this._armor;
   }
+
+  attack(attackValue) {
+    if(attackValue <= this.armor) {
+      this.armor = this.armor - attackValue;
+    } else {
+      this.health = this.health - (attackValue - this.armor);
+      this.armor = 0;
+    }
+    if(this.health <= 0) this.dead = true;
+  }
+
+  set dead(dead){
+    this.health = '0';
+    this.cardname = "DEAD";
+    this.draggable = false;
+    this.deadAnimation();
+  }
+
+  get dead(){
+    return this._cardname == 'DEAD';
+  }
 }
